@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="home_menu_root" action="home_chore_action" name="Home Management" />
+</odoo>
