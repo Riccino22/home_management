@@ -4,7 +4,27 @@
         <record id="home_chore_action" model="ir.actions.act_window">
             <field name="name">Home Chores</field>
             <field name="res_model">home.chore</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">calendar,tree,kanban,pivot,form</field>
+        </record>
+        <record id="home_chore_calendar" model="ir.ui.view">
+            <field name="name">home_chore.calendar</field>
+            <field name="model">home.chore</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar" date_start="execute_date" color="partner_id" quick_add="False" mode="month">
+                    <field name="execute_date" />
+                    <field name="partner_id" />
+                </calendar>
+            </field>
+        </record>
+        <record id="home_chore_view_pivot" model="ir.ui.view">
+            <field name="name">home_chore.pivot</field>
+            <field name="model">home.chore</field>
+            <field name="arch" type="xml">
+                <pivot string="Chores" disable_linking="true">
+                    <field name="execute_date" type="row" />
+                    <field name="partner_id" type="column" />
+                </pivot>
+            </field>
         </record>
     </data>
 </odoo>
