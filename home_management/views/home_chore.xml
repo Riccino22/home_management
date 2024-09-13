@@ -4,7 +4,7 @@
         <record id="home_chore_action" model="ir.actions.act_window">
             <field name="name">Home Chores</field>
             <field name="res_model">home.chore</field>
-            <field name="view_mode">calendar,tree,kanban,pivot,form</field>
+            <field name="view_mode">calendar,tree,kanban,pivot,graph,form</field>
         </record>
         <record id="home_chore_calendar" model="ir.ui.view">
             <field name="name">home_chore.calendar</field>
@@ -16,14 +16,33 @@
                 </calendar>
             </field>
         </record>
-        <record id="home_chore_view_pivot" model="ir.ui.view">
+        <record id="home_chore_pivot" model="ir.ui.view">
             <field name="name">home_chore.pivot</field>
             <field name="model">home.chore</field>
             <field name="arch" type="xml">
-                <pivot string="Chores" disable_linking="true">
+                <pivot string="Chores">
                     <field name="execute_date" type="row" />
-                    <field name="partner_id" type="column" />
+                    <field name="partner_id" type="col" />
                 </pivot>
+            </field>
+        </record>
+        <record id="home_chore_graph" model="ir.ui.view">
+            <field name="name">home_chore.graph</field>
+            <field name="model">home.chore</field>
+            <field name="arch" type="xml">
+                <graph string="" type="bar">
+                    <field name="partner_id" type="measure"/>
+                    <field name="execute_date" type="measure" />
+                </graph>
+            </field>
+        </record>
+        <record id="home_chore_tree" model="ir.ui.view">
+            <field name="name">home_chore.tree</field>
+            <field name="model">home.chore</field>
+            <field name="arch" type="xml">
+                <tree string="Yes">
+                    <field name="display_name" />
+                </tree>
             </field>
         </record>
     </data>
